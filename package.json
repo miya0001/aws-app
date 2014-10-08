@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "Amimoto",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-node-webkit-builder": "^0.2.3",
