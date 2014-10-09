@@ -2,8 +2,23 @@ module.exports = function( grunt ) {
   'use strict';
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    bower: {
+      install: {
+        options: {
+          targetDir: './lib',
+          layout: 'byType',
+          install: true,
+          verbose: false,
+          cleanTargetDir: false,
+          cleanBowerDir: false,
+          bowerOptions: {}
+        }
+      }
+    },
     nodewebkit: {
       options: {
+          appName: grunt.file.readJSON('package.json').window.title,
+          appVersion: grunt.file.readJSON('package.json').version,
           platforms: ['osx'],
           buildDir: 'build', // Where the build version of my node-webkit app is saved
       },
@@ -13,16 +28,19 @@ module.exports = function( grunt ) {
           "./js/*",
           "./css/*",
           "./img/*",
-          "./package.json",
-          "./node_modules/aws-sdk/**/*.js",
-          "./node_modules/aws-sdk/**/*.json",
-          "./node_modules/angular/lib/angular.js",
-          "./node_modules/angular/package.json",
+          "./lib/**/*",
       ] // Your node-webkit app
     },
+    qunit: {
+      all: ['test/**/*.html']
+    }
   })
 
+  grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-node-webkit-builder');
-  grunt.registerTask( 'default', ['nodewebkit'] );
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+
+  grunt.registerTask( 'test', ['qunit'] );
+  grunt.registerTask( 'default', ['bower::install', 'nodewebkit'] );
 
 };
