@@ -6,7 +6,6 @@ $.ajax({
   url: "package.json",
   async: false,
   success: function(data){
-    console.log(data);
     document.title = data.window.title;
     $('.navbar-brand').text(data.window.title);
   }
