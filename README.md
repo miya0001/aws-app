@@ -1,8 +1,4 @@
-# Amimoto Desktop
-
-Launch AWS Amimoto AMI on the Desktop.
-
-[http://amimoto-ami.com/](http://amimoto-ami.com/)
+# AWS Desktop Management Console
 
 ## Required
 
@@ -15,6 +11,7 @@ Launch AWS Amimoto AMI on the Desktop.
 $ git clone git@github.com:miya0001/amimoto-desktop.git
 $ cd amimoto-desktop
 $ npm install
+$ bower install
 ```
 
 ### How to preview
@@ -32,8 +29,10 @@ $ npm test
 ### How to build
 
 ```
-$ grunt
+$ grunt build
 ```
+
+See `build/` after you run command.
 
 ### Note
 
