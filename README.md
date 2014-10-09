@@ -36,10 +36,8 @@ See `build/` after you run command.
 
 ### Note
 
-If you have an error like below.
+If you have an error like below, run command `ulimit 1025` and `grunt` again.
 
 ```
 Fatal error: EMFILE, open ...
 ```
-
-Run command `ulimit 1025` and `grunt` again.
