@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="app/css/dashboard.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,22 +39,33 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="#">Dashboard</a>
-            <li><a href="#">Launch Amimoto</a></li>
-          </ul>
+        <div id="sidebar-container" class="col-sm-3 sidebar">
+          <div id="sidemenu">
+            <script id="template-sidemenu" type="text/x-jsrender">
+              <div id="#menu-{{:name}}" class="menu-group">
+                <h1><span class="{{:icon}}"></span> {{:label}}</h1>
+                <div class="list-group">
+                  {{for submenu}}<a href="#" data-parent="{{:#parent.parent.data.name}}" data-appid="{{:name}}" class="list-group-item">{{:label}}</a>{{/for}}
+                </div>
+              </div>
+            </script>
+          </div>
         </div>
-        <div id="app-container" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-
-        </div>
+        <div id="app-container" class="col-sm-9 col-sm-offset-3 main">
+          <script id="template-app-container" type="text/x-jsrender">
+            <div id="#app-{{:name}}" class="app">
+              <h1>{{:label}}</h1>
+                {{for submenu}}<div id="sub-{{:name}}"><h2>{{:label}}</h2><div id="sub-{{:name}}-container"></div></div>{{/for}}
+            </div>
+          </script>
+        </div><!-- #app-container -->
       </div>
     </div>
     <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/jsrender/jsrender.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/model.js"></script>
-    <script type="text/javascript" src="js/controller.js"></script>
-    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="app/js/model.js"></script>
+    <script type="text/javascript" src="app/js/controller.js"></script>
+    <script type="text/javascript" src="app/js/view.js"></script>
   </body>
 </html>

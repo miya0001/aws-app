@@ -106,5 +106,9 @@ body {
 
 
 /*
- * Amimoto
+ * AWS Console
  */
+#sidebar-container h1
+{
+  font-size: 16px;
+}

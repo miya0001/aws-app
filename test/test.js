@@ -1,3 +1,5 @@
-QUnit.test( "hello test", function( assert ) {
-  assert.ok( 1 == "1", "Passed!" );
+QUnit.test( "controller.js test", function( assert ) {
+  var cloud = new CloudSettings('test.json');
+  assert.ok("test.json" == cloud.json, "Passed!");
+  assert.ok(2 == cloud.get_settings().length, "Passed!");
 });
