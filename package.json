@@ -1,5 +1,5 @@
 {
-  "name": "aws-admin",
+  "name": "aws-dashboard",
   "version": "1.0.0",
   "description": "AWS Management Console on the desktop.",
   "main": "index.html",
@@ -26,7 +26,8 @@
     "url": "https://github.com/miya0001/amimoto-desktop/issues"
   },
   "window": {
-    "title": "AWS ADMIN",
+    "show": false,
+    "title": "AWS Dashboard",
     "toolbar": false,
     "frame": true,
     "width": 960,

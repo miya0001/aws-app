@@ -2,16 +2,16 @@
   {
     "name":"instances",
     "label":"Instances",
-    "icon":"glyphicon glyphicon-cloud",
+    "icon":"glyphicon glyphicon-tasks",
     "submenu":[
       {
-        "name":"instances",
-        "label":"Instances",
+        "name":"manage-instances",
+        "label":"Manage Instances",
         "callback":false
       },
       {
         "name":"launch",
-        "label":"Launch",
+        "label":"Launch Instance",
         "callback":false
       }
     ]
@@ -35,16 +35,16 @@
   },
   {
     "name":"security",
-    "label":"Security",
+    "label":"Security & Network",
     "icon":"glyphicon glyphicon-wrench",
     "submenu":[
       {
-        "name":"Security Groups",
-        "label":"security-groups",
+        "name":"security-groups",
+        "label":"Security Groups",
         "callback":false
       },
       {
-        "name":"elasticips",
+        "name":"elastic-ips",
         "label":"Elastic IPs",
         "callback":false
       },

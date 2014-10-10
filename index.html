@@ -42,22 +42,24 @@
         <div id="sidebar-container" class="col-sm-3 sidebar">
           <div id="sidemenu">
             <script id="template-sidemenu" type="text/x-jsrender">
-              <div id="#menu-{{:name}}" class="menu-group">
-                <h1><span class="{{:icon}}"></span> {{:label}}</h1>
+              <div id="#menu-{{>name}}" class="menu-group">
+                <h1><span class="{{>icon}}"></span> {{>label}}</h1>
                 <div class="list-group">
-                  {{for submenu}}<a href="#" data-parent="{{:#parent.parent.data.name}}" data-appid="{{:name}}" class="list-group-item">{{:label}}</a>{{/for}}
+                  {{for submenu}}<a href="#" data-parent_name="{{>#parent.parent.data.name}}" data-app_name="{{>name}}" class="list-group-item">{{>label}}</a>{{/for}}
                 </div>
               </div>
             </script>
           </div>
         </div>
-        <div id="app-container" class="col-sm-9 col-sm-offset-3 main">
-          <script id="template-app-container" type="text/x-jsrender">
-            <div id="#app-{{:name}}" class="app">
-              <h1>{{:label}}</h1>
-                {{for submenu}}<div id="sub-{{:name}}"><h2>{{:label}}</h2><div id="sub-{{:name}}-container"></div></div>{{/for}}
-            </div>
+        <div class="col-sm-9 col-sm-offset-3 main">
+          <div id="breadcrumb"></div>
+          <script id="template-breadcrumb" type="text/x-jsrender">
+            <ol class="breadcrumb">
+              <li>{{>parent_name}}</li>
+              <li>{{>app_name}}</li>
+            </ol>
           </script>
+          <div id="app-container"></div>
         </div><!-- #app-container -->
       </div>
     </div>
@@ -67,5 +69,6 @@
     <script type="text/javascript" src="app/js/model.js"></script>
     <script type="text/javascript" src="app/js/controller.js"></script>
     <script type="text/javascript" src="app/js/view.js"></script>
+    <script type="text/javascript" src="app/js/winstate.js"></script>
   </body>
 </html>

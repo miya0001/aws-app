@@ -1,11 +1,11 @@
 [
   {
-    "name":"instance",
-    "label":"Instance",
+    "name":"foo",
+    "label":"Bar",
     "submenu":[
       {
-        "name":"instance",
-        "label":"Instance",
+        "name":"instances",
+        "label":"Instances",
         "callback":false
       }
     ]
