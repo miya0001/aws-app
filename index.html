@@ -29,8 +29,24 @@
           <a class="navbar-brand" href="#"></a>
         </div>
         <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right" style="margin-left: 20px;">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a class="settings-menu app-navigation" data-parent_name="settings" data-parent_label="Settings" data-app_name="manage-accounts" data-app_label="Manage Accounts" href="#">Manage Accounts</a></li>
+                <li><a class="settings-menu app-navigation" data-parent_name="settings" data-parent_label="Settings" data-app_name="settings" data-app_label="Settings" href="#">Settings</a></li>
+              </ul>
+            </li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">User</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <span id="user-accounts-label">User Accounts</span> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a class="user-accounts" href="#">miya@wpist.me</a></li>
+                <li><a class="user-accounts" href="#">info+demo@wpist.me</a></li>
+                <li><a class="user-accounts" href="#">miyauchi@digitalcube.jp</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -45,7 +61,9 @@
               <div id="#menu-{{>name}}" class="menu-group">
                 <h1><span class="{{>icon}}"></span> {{>label}}</h1>
                 <div class="list-group">
-                  {{for submenu}}<a href="#" data-parent_name="{{>#parent.parent.data.name}}" data-app_name="{{>name}}" class="list-group-item">{{>label}}</a>{{/for}}
+                  {{for submenu}}
+                    <a href="#" data-parent_name="{{>#parent.parent.data.name}}" data-app_name="{{>name}}" data-parent_label="{{>#parent.parent.data.label}}" data-app_label="{{>label}}" class="list-group-item app-navigation">{{>label}}</a>
+                  {{/for}}
                 </div>
               </div>
             </script>
@@ -55,8 +73,8 @@
           <div id="breadcrumb"></div>
           <script id="template-breadcrumb" type="text/x-jsrender">
             <ol class="breadcrumb">
-              <li>{{>parent_name}}</li>
-              <li>{{>app_name}}</li>
+              <li>{{>parent_label}}</li>
+              <li class="active">{{>app_label}}</li>
             </ol>
           </script>
           <div id="app-container"></div>
