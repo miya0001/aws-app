@@ -6,7 +6,7 @@ module.exports = function( grunt ) {
       options: {
           appName: grunt.file.readJSON('package.json').window.title,
           appVersion: grunt.file.readJSON('package.json').version,
-          platforms: ['osx', 'windows'],
+          platforms: ['osx', 'win'],
           buildDir: 'build', // Where the build version of my node-webkit app is saved
       },
       src: [
