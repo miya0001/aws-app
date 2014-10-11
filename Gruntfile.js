@@ -13,14 +13,19 @@ module.exports = function( grunt ) {
           "./index.html",
           "./package.json",
           "./app/**/*",
-          "./lib/aws-sdk/dist/*.js",
-          "./lib/bootstrap/dist/**/*",
+          "./lib/aws-sdk/dist/*.min.js",
+          "./lib/bootstrap/dist/css/*.min.css",
+          "./lib/bootstrap/dist/fonts/*",
+          "./lib/bootstrap/dist/js/*.min.js",
           "./lib/jquery/dist/jquery.min.js",
           "./lib/jsrender/jsrender.min.js",
+          "./lib/font-awesome/css/*.min.js",
+          "./lib/font-awesome/fonts/*",
+          "!./**/*.map",
       ] // Your node-webkit app
     },
     qunit: {
-      all: ['test/**/*.html']
+      all: ['test.html']
     }
   })
 

@@ -112,3 +112,27 @@ body {
 {
   font-size: 16px;
 }
+
+#header-navbar .navbar-right
+{
+  margin-left: 10px;
+}
+
+#brand {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  line-height: 20px;
+}
+
+#brand .label {
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.white
+{
+  color: #ffffff;
+}

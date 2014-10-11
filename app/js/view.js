@@ -1,13 +1,13 @@
-(function($){
+(function init($){
 
-  'use strict'
+  'use strict';
 
   var app = new MyController();
   app.set_provider('aws', 'app/json/aws.json');
   app.init();
 
   document.title = app.get_pkg().window.title;
-  $('.navbar-brand').text(app.get_pkg().window.title);
+  $('#brand .label').text(app.get_pkg().window.title);
 
   $('#sidemenu').html($('#template-sidemenu').render(app.get_cloud()));
 
@@ -25,9 +25,9 @@
   $('.app-navigation').click(function(e){
     $('.app-navigation').removeClass('active');
     $(this).addClass('active');
-    var event1 = new $.Event('app', {attr: $(this).data()});
+    var event1 = new $.Event('app', {attr: $('.app-navigation.active:first').data()});
     $('#app-container').trigger(event1);
-    var event2 = new $.Event('app-'+$(this).data('app_name'), {attr: $(this).data()});
+    var event2 = new $.Event('app-'+$(this).data('app_name'), {attr: $('.app-navigation.active:first').data()});
     $('#app-container').trigger(event2);
     e.preventDefault();
   });
@@ -39,9 +39,12 @@
     }));
   });
 
-  $('.user-accounts').click(function(e){
-    $('#user-accounts-label').text($(this).text());
-    e.preventDefault();
+  $('.dropdown-menu a').click(function(e){
+    if ($(this).data('label')) {
+      var label = $(this).data('label');
+      $('#'+label).text($(this).text());
+      e.preventDefault();
+    }
   });
 
 })(jQuery);

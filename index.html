@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="app/css/dashboard.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,7 +18,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div id="header-navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,28 +27,42 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"></a>
+          <div id="brand"><span class="white glyphicon glyphicon-cloud"></span><span class="label"></span></div>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right" style="margin-left: 20px;">
+          <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a class="settings-menu app-navigation" data-parent_name="settings" data-parent_label="Settings" data-app_name="manage-accounts" data-app_label="Manage Accounts" href="#">Manage Accounts</a></li>
-                <li><a class="settings-menu app-navigation" data-parent_name="settings" data-parent_label="Settings" data-app_name="settings" data-app_label="Settings" href="#">Settings</a></li>
+                <li><a class="app-navigation" data-parent_name="preferences" data-parent_label="Preferences" data-app_name="settings" data-app_label="Settings" href="#">Settings</a></li>
               </ul>
             </li>
           </ul>
+
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <span id="user-accounts-label">User Accounts</span> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a class="user-accounts" href="#">miya@wpist.me</a></li>
-                <li><a class="user-accounts" href="#">info+demo@wpist.me</a></li>
-                <li><a class="user-accounts" href="#">miyauchi@digitalcube.jp</a></li>
+                <li><a class="user-accounts" data-label="user-accounts-label" href="#">miya@wpist.me</a></li>
+                <li><a class="user-accounts" data-label="user-accounts-label" href="#">info+demo@wpist.me</a></li>
+                <li><a class="user-accounts" data-label="user-accounts-label" href="#">miyauchi@digitalcube.jp</a></li>
+                <li class="divider"></li>
+                <li><a class="app-navigation" data-parent_name="user-accounts" data-parent_label="User Accounts" data-app_name="manage-accounts" data-app_label="Manage Accounts" href="#">Manage Accounts</a></li>
               </ul>
             </li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> <span id="regions-label">Regions</span> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a class="regions" data-label="regions-label" href="#">US East (N.Virginia)</a></li>
+                <li><a class="regions" data-label="regions-label" href="#">US West (Oregon)</a></li>
+                <li><a class="regions" data-label="regions-label" href="#">US West (N.California)</a></li>
+              </ul>
+            </li>
+          </ul>
+
         </div>
       </div>
     </div>
@@ -77,6 +92,7 @@
               <li class="active">{{>app_label}}</li>
             </ol>
           </script>
+
           <div id="app-container"></div>
         </div><!-- #app-container -->
       </div>

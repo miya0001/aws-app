@@ -6,13 +6,11 @@
     "submenu":[
       {
         "name":"manage-instances",
-        "label":"Manage Instances",
-        "callback":false
+        "label":"Manage Instances"
       },
       {
         "name":"launch",
-        "label":"Launch Instance",
-        "callback":false
+        "label":"Launch Instance"
       }
     ]
   },
@@ -23,13 +21,11 @@
     "submenu":[
       {
         "name":"volumes",
-        "label":"Volumes",
-        "callback":false
+        "label":"Volumes"
       },
       {
         "name":"snapshots",
-        "label":"Snapshots",
-        "callback":false
+        "label":"Snapshots"
       }
     ]
   },
@@ -40,18 +36,15 @@
     "submenu":[
       {
         "name":"security-groups",
-        "label":"Security Groups",
-        "callback":false
+        "label":"Security Groups"
       },
       {
         "name":"elastic-ips",
-        "label":"Elastic IPs",
-        "callback":false
+        "label":"Elastic IPs"
       },
       {
         "name":"keypairs",
-        "label":"Key Pairs",
-        "callback":false
+        "label":"Key Pairs"
       }
     ]
   }
