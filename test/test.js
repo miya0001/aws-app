@@ -8,7 +8,11 @@ QUnit.test( "model.js test", function( assert ) {
 
 QUnit.test( "controller.js test", function( assert ) {
   var app = new MyController();
-  app.set_provider('aws', 'app/json/aws.json');
+  var provider = {
+    "name": "aws",
+    "json": "app/json/aws.json"
+  };
+  app.set_provider(provider);
   app.init();
   assert.ok('aws' == app.provider, "'aws' == app.provider");
   assert.ok('app/json/aws.json' == app.json, "'app/json/aws.json' == app.json");
