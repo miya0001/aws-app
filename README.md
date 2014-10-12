@@ -9,7 +9,7 @@
 
 ```
 $ git clone git@github.com:miya0001/aws-app.git
-$ cd amimoto-desktopws-app
+$ cd aws-app
 $ npm install
 $ bower install
 ```
