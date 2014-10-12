@@ -8,8 +8,8 @@
 ## How to develop
 
 ```
-$ git clone git@github.com:miya0001/amimoto-desktop.git
-$ cd amimoto-desktop
+$ git clone git@github.com:miya0001/aws-app.git
+$ cd amimoto-desktopws-app
 $ npm install
 $ bower install
 ```
@@ -24,6 +24,12 @@ $ npm start
 
 ```
 $ npm test
+```
+
+or
+
+```
+$ grunt test
 ```
 
 ### How to build
@@ -41,3 +47,7 @@ If you have an error like below, run command `ulimit 1025` and `grunt` again.
 ```
 Fatal error: EMFILE, open ...
 ```
+
+### License
+
+GPLv2 or later

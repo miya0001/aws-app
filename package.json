@@ -9,7 +9,7 @@
     "test": "grunt test"
   },
   "author": "miya0001",
-  "license": "MIT",
+  "license": "GPLv2 or later",
   "repository": {
     "type": "git",
     "url": "git@github.com:miya0001/amimoto-desktop.git"
