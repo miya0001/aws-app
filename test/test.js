@@ -25,6 +25,8 @@ QUnit.test( "controller.js test", function( assert ) {
   assert.ok(app.is('Array', ['a']), "app.is('Array', ['a'])");
   assert.ok('a/b' == app.join('a', 'b'), "'a/b' == app.join('a', 'b')");
   assert.ok('a/b' == app.join('a/', 'b/'), "'a/b' == app.join('a/', 'b')");
+  app.set_current_app('hoge');
+  assert.ok('app/templates/aws/hoge.html' == app.get_template(), "app.set_current_app('hoge'); 'app/templates/aws/hoge.html' == app.get_template()");
 });
 
 QUnit.test( "UI test", function( assert ) {

@@ -8,14 +8,14 @@ MyController.prototype.set_provider = function(provider) {
   this.json = provider.json;
 }
 
-MyController.prototype.init = function(){
+MyController.prototype.init = function() {
   var model = new MyModel(this.json);
   this.cloud = model.get_cloud();
   this.pkg = model.get_pkg();
   this.config = model.get_config();
 }
 
-MyController.prototype.get_config = function(key){
+MyController.prototype.get_config = function(key) {
   if (key) {
     if (typeof this.config[key] === "undefined") {
       return '';
@@ -27,17 +27,29 @@ MyController.prototype.get_config = function(key){
   }
 };
 
-MyController.prototype.get_cloud = function(){
+MyController.prototype.get_cloud = function() {
   return this.cloud;
 };
 
-MyController.prototype.get_pkg = function(){
+MyController.prototype.get_pkg = function() {
   return this.pkg;
+};
+
+MyController.prototype.set_current_app = function(app) {
+  this.current_app = app;
+};
+
+MyController.prototype.get_template = function() {
+  return this.join(
+    this.get_config('template_path'),
+    this.provider,
+    this.current_app + '.html'
+  );
 };
 
 MyController.prototype.fatal_error = function(message){
   $('#fatal-error').modal({'backdrop': 'static'});
-  $('#fatal-error .message').text(message);
+  $('#fatal-error .message').html(message);
 };
 
 
@@ -50,7 +62,7 @@ MyController.prototype.fatal_error = function(message){
 MyController.prototype.is = function(type, obj) {
     var clas = Object.prototype.toString.call(obj).slice(8, -1);
     return obj !== undefined && obj !== null && clas === type;
-}
+};
 
 
 /*
@@ -80,4 +92,4 @@ MyController.prototype.join = function(/* path segments */) {
   if (parts[0] === "") newParts.unshift("");
   // Turn back into a single string path.
   return newParts.join("/") || (newParts.length ? "/" : ".");
-}
+};

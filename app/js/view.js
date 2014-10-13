@@ -26,22 +26,17 @@
     $('.app-navigation').removeClass('active');
     $(this).addClass('active');
 
-    var event1 = new $.Event('app', {
+    var event = new $.Event('app', {
       "provider": provider.name,
-      "attr": $('.app-navigation.active:first').data()
+      "attr": $(this).data()
     });
-    $('#app-container').trigger(event1);
-
-    var event2 = new $.Event('app-'+$(this).data('app_name'), {
-      "provider": provider.name,
-      "attr": $('.app-navigation.active:first').data()
-    });
-    $('#app-container').trigger(event2);
+    $('#app-container').trigger(event);
 
     e.preventDefault();
   });
 
   $('#app-container').bind('app', function(e){
+    app.set_current_app(e.attr.app_name);
     $('#breadcrumb').html($('#template-breadcrumb').render({
       parent_label: e.attr.parent_label,
       app_label: e.attr.app_label
@@ -55,6 +50,23 @@
       e.preventDefault();
     }
   });
+
+  $('#app-container').bind('app', function(e){
+    var tpl = app.get_template();
+    var self = this;
+    $.get(tpl, function(value) {
+      var template = $.templates(value);
+      $(self).html(template.render(e));
+      var event = new $.Event('after-app-'+e.attr.app_name, {
+        'provider': e.provider,
+        'attr': e.attr
+      });
+      $(self).trigger(event);
+    }).fail(function(){
+      app.fatal_error('<code>' + tpl + '</code> not found.');
+    });
+  });
+
 
   /*
    * initialize
