@@ -25,6 +25,7 @@
   $('.app-navigation').bind("click", function(e){
     $('.app-navigation').removeClass('active');
     $(this).addClass('active');
+    app.set_current_app($(this).data('app_name'));
 
     var event = new $.Event('app', {
       "provider": provider.name,
@@ -36,7 +37,6 @@
   });
 
   $('#app-container').bind('app', function(e){
-    app.set_current_app(e.attr.app_name);
     $('#breadcrumb').html($('#template-breadcrumb').render({
       parent_label: e.attr.parent_label,
       app_label: e.attr.app_label
