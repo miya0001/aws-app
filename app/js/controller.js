@@ -47,10 +47,26 @@ MyController.prototype.get_template = function() {
   );
 };
 
-MyController.prototype.fatal_error = function(message){
+MyController.prototype.fatal_error = function(message) {
   $('#fatal-error').modal({'backdrop': 'static'});
   $('#fatal-error .message').html(message);
 };
+
+
+/*
+ * Load #app-container
+ * @param {mixed} args Arguments for template.
+ */
+MyController.prototype.render = function(args) {
+  var tpl = this.get_template();
+  var self = this;
+  $.get(tpl, function(value) {
+    var template = $.templates(value);
+    $('#app-container').html(template.render(args));
+  }).fail(function(){
+    self.fatal_error('<code>' + tpl + '</code> not found.');
+  });
+}
 
 
 /*

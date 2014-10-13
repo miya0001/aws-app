@@ -1,3 +1,5 @@
+(function(){
+
 'use strict'
 /**
  * Cross-platform window state preservation.
@@ -155,3 +157,5 @@ win.on('close', function () {
     saveWindowState();
     this.close(true);
 });
+
+})();

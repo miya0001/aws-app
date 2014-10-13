@@ -1,4 +1,6 @@
-(function init($){
+var app;
+
+(function($){
 
   'use strict';
 
@@ -7,7 +9,7 @@
     "json": "app/json/aws.json"
   };
 
-  var app = new MyController();
+  app = new MyController();
   app.set_provider(provider);
   app.init();
 
@@ -27,11 +29,17 @@
     $(this).addClass('active');
     app.set_current_app($(this).data('app_name'));
 
-    var event = new $.Event('app', {
+    var event1 = new $.Event('app', {
       "provider": provider.name,
       "attr": $(this).data()
     });
-    $('#app-container').trigger(event);
+    $('#app-container').trigger(event1);
+
+    var event2 = new $.Event('app-'+$(this).data('app_name'), {
+      "provider": provider.name,
+      "attr": $(this).data()
+    });
+    $('#app-container').trigger(event2);
 
     e.preventDefault();
   });
@@ -52,19 +60,7 @@
   });
 
   $('#app-container').bind('app', function(e){
-    var tpl = app.get_template();
-    var self = this;
-    $.get(tpl, function(value) {
-      var template = $.templates(value);
-      $(self).html(template.render(e));
-      var event = new $.Event('after-app-'+e.attr.app_name, {
-        'provider': e.provider,
-        'attr': e.attr
-      });
-      $(self).trigger(event);
-    }).fail(function(){
-      app.fatal_error('<code>' + tpl + '</code> not found.');
-    });
+    app.render({'test': 'hoge'});
   });
 
 
