@@ -4,6 +4,7 @@ module.exports = function( grunt ) {
     pkg: grunt.file.readJSON('package.json'),
     nodewebkit: {
       options: {
+          version: '0.10.5',
           appName: grunt.file.readJSON('package.json').window.title,
           appVersion: grunt.file.readJSON('package.json').version,
           platforms: ['osx', 'win'],
